@@ -264,7 +264,7 @@ class PostsIndex extends React.Component {
                     )}
                     <Notices notices={this.props.notices} />
                     <SteemMarket />
-                    {this.props.gptSlots ? (
+                    {this.props.gptEnabled ? (
                         <div className="sidebar-ad">
                             <GptAd slotName="right_nav" />
                         </div>
@@ -290,7 +290,7 @@ class PostsIndex extends React.Component {
                         </a>
                         {' ' + tt('g.next_3_strings_together.value_posts')}
                     </small>
-                    {this.props.gptSlots ? (
+                    {this.props.gptEnabled ? (
                         <div className="sidebar-ad">
                             <GptAd slotName="left_nav" />
                         </div>
@@ -326,7 +326,7 @@ module.exports = {
                     .get('pinned_posts')
                     .get('notices')
                     .toJS(),
-                gptSlots: state.app.getIn(['googleAds', 'gptSlots']).toJS(),
+                gptEnabled: state.app.getIn(['googleAds', 'gptEnabled']),
             };
         },
         dispatch => {
